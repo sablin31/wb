@@ -11,7 +11,7 @@ import SwiftUI
 struct WBApp: App {
     var body: some Scene {
         WindowGroup {
-            SMSScreen(phoneNumber: "+7 (921) 233-123-44")
+            LoginView()
         }
     }
 }

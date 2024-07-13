@@ -11,6 +11,7 @@
 		706A13442C32CB9E0065B39B /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 706A13402C32CB9E0065B39B /* Montserrat-SemiBold.ttf */; };
 		706A13452C32CB9E0065B39B /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 706A13412C32CB9E0065B39B /* Montserrat-Medium.ttf */; };
 		706A13462C32CB9E0065B39B /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 706A13422C32CB9E0065B39B /* Montserrat-Bold.ttf */; };
+		70A683A02C42F3AD00FFBA64 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A6839F2C42F3AD00FFBA64 /* LoginView.swift */; };
 		70CD79112C33C77500FDA91C /* SMSScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CD79102C33C77500FDA91C /* SMSScreen.swift */; };
 		70CD79132C33CA5F00FDA91C /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CD79122C33CA5F00FDA91C /* TimerManager.swift */; };
 		70CD791C2C359A4500FDA91C /* WBUIKit in Resources */ = {isa = PBXBuildFile; fileRef = 70CD791A2C359A4500FDA91C /* WBUIKit */; };
@@ -26,6 +27,7 @@
 		706A13412C32CB9E0065B39B /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		706A13422C32CB9E0065B39B /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		706A13472C32CD280065B39B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70A6839F2C42F3AD00FFBA64 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		70CD79102C33C77500FDA91C /* SMSScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSScreen.swift; sourceTree = "<group>"; };
 		70CD79122C33CA5F00FDA91C /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		70CD791A2C359A4500FDA91C /* WBUIKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = WBUIKit; sourceTree = "<group>"; };
@@ -59,9 +61,18 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		70A6839E2C42F3A000FFBA64 /* LoginScreen */ = {
+			isa = PBXGroup;
+			children = (
+				70A6839F2C42F3AD00FFBA64 /* LoginView.swift */,
+			);
+			path = LoginScreen;
+			sourceTree = "<group>";
+		};
 		70CD78F82C32FCB300FDA91C /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				70A6839E2C42F3A000FFBA64 /* LoginScreen */,
 				70CD790F2C33C75E00FDA91C /* SMSScreen */,
 			);
 			path = Screens;
@@ -227,6 +238,7 @@
 				70CD79132C33CA5F00FDA91C /* TimerManager.swift in Sources */,
 				70CD79112C33C77500FDA91C /* SMSScreen.swift in Sources */,
 				70CD79222C35E19E00FDA91C /* Foundation+Extension.swift in Sources */,
+				70A683A02C42F3AD00FFBA64 /* LoginView.swift in Sources */,
 				70CD86C32C329DB10046082E /* WBApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
