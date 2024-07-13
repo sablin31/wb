@@ -29,6 +29,7 @@ public struct BaseView<Content>: View where Content: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .edgesIgnoringSafeArea(.all)
+                    .onTapGesture { hideKeyboard() }
             }
             ZStack {
                 UIHelper.baseColor

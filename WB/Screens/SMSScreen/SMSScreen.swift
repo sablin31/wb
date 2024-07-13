@@ -131,25 +131,17 @@ struct SMSScreen: View {
             }
             .padding(.horizontal, Constants.viewHorizontalPaddingValue)
             .onAppear { timerManager.start(on: Constants.timeRemaingRequestCode) }
-            .onChange(of: codeDigit1) { newValue in
-                DispatchQueue.main.async {
-                    modifired(numberOfTextFields: 1, newValue: newValue)
-                }
+            .onChange(of: codeDigit1) {
+                modifired(numberOfTextFields: 1, newValue: $0)
             }
-            .onChange(of: codeDigit2) { newValue in
-                DispatchQueue.main.async {
-                    modifired(numberOfTextFields: 2, newValue: newValue)
-                }
+            .onChange(of: codeDigit2) {
+                modifired(numberOfTextFields: 2, newValue: $0)
             }
-            .onChange(of: codeDigit3) { newValue in
-                DispatchQueue.main.async {
-                    modifired(numberOfTextFields: 3, newValue: newValue)
-                }
+            .onChange(of: codeDigit3) {
+                modifired(numberOfTextFields: 3, newValue: $0)
             }
-            .onChange(of: codeDigit4) { newValue in
-                DispatchQueue.main.async {
-                    modifired(numberOfTextFields: 4, newValue: newValue)
-                }
+            .onChange(of: codeDigit4) {
+                modifired(numberOfTextFields: 4, newValue: $0)
             }
         }
     }
