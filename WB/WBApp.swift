@@ -6,12 +6,21 @@
 //
 
 import SwiftUI
+import WBUIKit
 
 @main
 struct WBApp: App {
+
+    // MARK: Private properties
+
+    @StateObject private var router = Router()
+
+    // MARK: Computed properties
+
     var body: some Scene {
         WindowGroup {
             LoginView()
+                .environmentObject(router)
         }
     }
 }

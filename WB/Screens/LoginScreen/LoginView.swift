@@ -10,55 +10,60 @@ import WBUIKit
 
 struct LoginView: View {
 
-    // MARK: Public properties
+    // MARK: Private properties
 
-    @State private(set) var phoneNumber = Constants.phoneNumberTextFieldInitialText
-    @State private(set) var errorMessage: String?
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @State private var phoneNumber = Constants.phoneNumberTextFieldInitialText
+    @State private var errorMessage: String?
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @EnvironmentObject private var router: Router
 
     // MARK: Computed properties
 
     var body: some View {
-        BaseView {
-            VStack {
-                Text(Constants.titleText)
-                    .customTextStyle()
-                    .padding(.top, horizontalSizeClass == .compact ?
-                             Constants.titlePaddingCompactValue : Constants.titlePaddingDefaultValue)
-                CustomRoundImage(imageName: Constants.avatarImageName)
-                    .padding(.top, horizontalSizeClass == .compact ?
-                             Constants.avatarPaddingCompactValue : Constants.avatarPaddingDefaultValue)
-                Text(Constants.descriptionText)
-                    .customTextStyle(font: Constants.descriptionFont)
-                    .padding(.top, Constants.descriptionPaddingDefaultValue)
-                CustomTextField(
-                    text: $phoneNumber,
-                    errorMessage: errorMessage,
-                    initialText: Constants.phoneNumberTextFieldInitialText
-                )
-                .frame(height: Constants.baseFrameHeight)
-                .padding(.top, horizontalSizeClass == .compact ?
-                         Constants.phoneNumberPaddingCompactValue : Constants.phoneNumberPaddingDefaultValue)
-                Spacer()
-                VStack {
-                    Button(Constants.requestCodeBtnTitle) {
-                        checkPhoneNumber()
+        CustomNavigationView(router: router) {
+            ZStack {
+                BackgroundView()
+                BaseView {
+                    VStack {
+                        Text(Constants.titleText)
+                            .customTextStyle()
+                            .padding(.top, horizontalSizeClass == .compact ?
+                                     Constants.titlePaddingCompactValue : Constants.titlePaddingDefaultValue)
+                        CustomRoundImage(imageName: Constants.avatarImageName)
+                            .padding(.top, horizontalSizeClass == .compact ?
+                                     Constants.avatarPaddingCompactValue : Constants.avatarPaddingDefaultValue)
+                        Text(Constants.descriptionText)
+                            .customTextStyle(font: Constants.descriptionFont)
+                            .padding(.top, Constants.descriptionPaddingDefaultValue)
+                        CustomTextField(
+                            text: $phoneNumber,
+                            errorMessage: errorMessage,
+                            initialText: Constants.phoneNumberTextFieldInitialText
+                        )
+                        .frame(height: Constants.baseFrameHeight)
+                        .padding(.top, horizontalSizeClass == .compact ?
+                                 Constants.phoneNumberPaddingCompactValue : Constants.phoneNumberPaddingDefaultValue)
+                        Spacer()
+                        VStack {
+                            Button(Constants.requestCodeBtnTitle) {
+                                checkPhoneNumber()
+                            }
+                            .buttonStyle(RoundButton())
+                            .frame(height: Constants.baseFrameHeight)
+                            .padding(.top, horizontalSizeClass == .compact ?
+                                     Constants.requestCodeBtnPaddingCompactValue : Constants.requestCodeBtnPaddingDefaultValue)
+                        }
                     }
-                    .buttonStyle(RoundButton())
-                    .frame(height: Constants.baseFrameHeight)
-                    .padding(.top, horizontalSizeClass == .compact ?
-                             Constants.requestCodeBtnPaddingCompactValue : Constants.requestCodeBtnPaddingDefaultValue)
+                    .padding(.horizontal, Constants.viewHorizontalPaddingValue)
                 }
-            }.padding(.horizontal, Constants.viewHorizontalPaddingValue)
-        }
-        .onChange(of: phoneNumber) { newValue in
-            guard newValue != "+8" else {
-                phoneNumber = "+7"
-                return
-            }
-            phoneNumber = newValue.format(mask: Constants.phoneNumberMask)
-            if phoneNumber.count == Constants.phoneNumberMask.count {
-                checkPhoneNumber()
+                .onChange(of: phoneNumber) { newValue in
+                    guard newValue != "+8" else {
+                        phoneNumber = "+7"
+                        return
+                    }
+                    phoneNumber = newValue.format(mask: Constants.phoneNumberMask)
+                    errorMessage = nil
+                }
             }
         }
     }
@@ -67,8 +72,14 @@ struct LoginView: View {
 
 private extension LoginView {
     func checkPhoneNumber() {
-        errorMessage = phoneNumber.isValid(regex: Constants.phoneNumberRegEx) ?
-        nil : Constants.errorMessage
+        if phoneNumber.isValid(regex: Constants.phoneNumberRegEx) {
+            errorMessage = nil
+            withAnimation(.easeInOut) {
+                router.push(SMSScreen(phoneNumber: phoneNumber))
+            }
+        } else {
+            errorMessage = Constants.errorMessage
+        }
     }
 }
 // MARK: - Constants

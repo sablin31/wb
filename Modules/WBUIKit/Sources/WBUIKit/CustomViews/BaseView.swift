@@ -22,28 +22,17 @@ public struct BaseView<Content>: View where Content: View {
 
     public var body: some View {
         ZStack {
-            if currentDevice == .pad {
-                UIHelper.baseColor
-                    .edgesIgnoringSafeArea(.all)
-                Image("bgImage")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .edgesIgnoringSafeArea(.all)
-                    .onTapGesture { hideKeyboard() }
-            }
-            ZStack {
-                UIHelper.baseColor
-                    .cornerRadius(currentDevice == .pad ? 28 : 0)
-                    .edgesIgnoringSafeArea(.all)
-                    .onTapGesture { hideKeyboard() }
-                content()
-                    .padding(.bottom, currentDevice == .pad ? 32 : 0)
-            }
-            .frame(
-                maxWidth: currentDevice == .phone ? .infinity : frameSize.width,
-                maxHeight: currentDevice == .phone ? .infinity : frameSize.height
-            )
+            UIHelper.baseColor
+                .cornerRadius(currentDevice == .pad ? 28 : 0)
+                .edgesIgnoringSafeArea(.all)
+                .onTapGesture { hideKeyboard() }
+            content()
+                .padding(.bottom, currentDevice == .pad ? 32 : 0)
         }
+        .frame(
+            maxWidth: currentDevice == .phone ? .infinity : frameSize.width,
+            maxHeight: currentDevice == .phone ? .infinity : frameSize.height
+        )
     }
 
     // MARK: Init

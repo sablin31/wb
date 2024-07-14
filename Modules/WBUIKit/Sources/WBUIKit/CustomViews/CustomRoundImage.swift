@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-// MARK: Computed properties
-
 public struct CustomRoundImage: View {
 
     // MARK: Private properties

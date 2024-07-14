@@ -10,138 +10,160 @@ import WBUIKit
 
 struct SMSScreen: View {
 
-    // MARK: Public properties
-
-    @StateObject var timerManager = TimerManager()
-    @State private(set) var codeDigit1 = ""
-    @State private(set) var codeDigit2 = ""
-    @State private(set) var codeDigit3 = ""
-    @State private(set) var codeDigit4 = ""
-    @State private(set) var borderColor: Color? = nil
-    @FocusState private(set) var isFocusedDigit1: Bool
-    @FocusState private(set) var isFocusedDigit2: Bool
-    @FocusState private(set) var isFocusedDigit3: Bool
-    @FocusState private(set) var isFocusedDigit4: Bool
-    @State var currentOrientation: UIDeviceOrientation?
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
-
     // MARK: Private properties
 
+    @StateObject private var timerManager = SMSTimerManager.shared
+    @State private var codeDigit1 = ""
+    @State private var codeDigit2 = ""
+    @State private var codeDigit3 = ""
+    @State private var codeDigit4 = ""
+    @State private var borderColor: Color? = nil
+    @FocusState private var isFocusedDigit1: Bool
+    @FocusState private var isFocusedDigit2: Bool
+    @FocusState private var isFocusedDigit3: Bool
+    @FocusState private var isFocusedDigit4: Bool
+    @EnvironmentObject private var router: Router
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     private var phoneNumber: String
-    private var timer: Timer?
+    private let currentDevice = UIDevice.current.userInterfaceIdiom
 
     // MARK: Computed properties
 
     var body: some View {
-        BaseView {
+        ZStack {
+            BackgroundView()
             VStack {
-                Image(Constants.letterImageName)
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: Constants.letterImageSize.width,
-                           height: Constants.letterImageSize.height)
-                    .padding(.top, horizontalSizeClass == .compact ?
-                             Constants.letterImagePaddingCompactValue :
-                                Constants.letterImagePaddingDefaultValue)
-                Text(phoneNumber)
-                    .customTextStyle()
-                    .padding(.top, Constants.phoneNumberPadding)
-                HStack {
-                    CustomTextField(
-                        text: $codeDigit1,
-                        textFont: Constants.codeTextFieldFont,
-                        withClearBtn: false,
-                        multilineTextAlignment: .center,
-                        borderColor: borderColor
-                    )
-                    .focused($isFocusedDigit1)
-                    .frame(width: Constants.codeTextFieldFrame.width,
-                           height: Constants.codeTextFieldFrame.height)
-                    .padding(.horizontal, Constants.codeTextFieldrPadding)
-
-                    CustomTextField(
-                        text: $codeDigit2,
-                        textFont: Constants.codeTextFieldFont,
-                        withClearBtn: false,
-                        multilineTextAlignment: .center,
-                        borderColor: borderColor
-                    )
-                    .focused($isFocusedDigit2)
-                    .frame(width: Constants.codeTextFieldFrame.width,
-                           height: Constants.codeTextFieldFrame.height)
-                    .padding(.horizontal, Constants.codeTextFieldrPadding)
-
-                    CustomTextField(
-                        text: $codeDigit3,
-                        textFont: Constants.codeTextFieldFont,
-                        withClearBtn: false,
-                        multilineTextAlignment: .center,
-                        borderColor: borderColor
-                    )
-                    .focused($isFocusedDigit3)
-                    .frame(width: Constants.codeTextFieldFrame.width,
-                           height: Constants.codeTextFieldFrame.height)
-                    .padding(.horizontal, Constants.codeTextFieldrPadding)
-                    
-                    CustomTextField(
-                        text: $codeDigit4,
-                        textFont: Constants.codeTextFieldFont,
-                        withClearBtn: false,
-                        multilineTextAlignment: .center,
-                        borderColor: borderColor
-                    )
-                    .focused($isFocusedDigit4)
-                    .frame(width: Constants.codeTextFieldFrame.width,
-                           height: Constants.codeTextFieldFrame.height)
-                    .padding(.horizontal, Constants.codeTextFieldrPadding)
-                }
-                .frame(height: Constants.hStackHeight)
-                if let borderColor, borderColor != UIHelper.acceptColor {
-                    Text(Constants.errorText)
-                        .customTextStyle(font: Constants.timerTextFont,color: borderColor)
-                }
-                if timerManager.timeRemaining > 0 {
-                    Text("\(Constants.timerTitle) \(timerManager.timeRemaining) \(Constants.timerTitleSec)")
-                        .customTextStyle(font: Constants.timerTextFont)
-                        .padding(.top, Constants.timerTextPadding)
-                } else {
-                    Button(action: {
-                        timerManager.start(on: Constants.timeRemaingRequestCode)
-                    }) {
-                        Text(Constants.requestCodeBtnTitle)
-                            .customTextStyle(font: Constants.timerTextFont)
-                            .padding(.top, Constants.timerTextPadding)
-                    }
-                }
-                Spacer()
-                VStack {
-                    Button(Constants.requestAuthorizationBtnTitle) {
-                        if checkCodeIsValid() {
-                            borderColor = UIHelper.acceptColor
-                        } else {
-                            borderColor = UIHelper.alertColor
+                BaseView {
+                    VStack {
+                        Image(Constants.letterImageName)
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: Constants.letterImageSize.width,
+                                   height: Constants.letterImageSize.height)
+                            .padding(.top, horizontalSizeClass == .compact ?
+                                     Constants.letterImagePaddingCompactValue :
+                                        Constants.letterImagePaddingDefaultValue)
+                        Text(phoneNumber)
+                            .customTextStyle()
+                            .padding(.top, Constants.phoneNumberPadding)
+                        HStack {
+                            CustomTextField(
+                                text: $codeDigit1,
+                                textFont: Constants.codeTextFieldFont,
+                                withClearBtn: false,
+                                multilineTextAlignment: .center,
+                                borderColor: borderColor
+                            )
+                            .focused($isFocusedDigit1)
+                            .frame(width: Constants.codeTextFieldFrame.width,
+                                   height: Constants.codeTextFieldFrame.height)
+                            .padding(.horizontal, Constants.codeTextFieldrPadding)
+                            
+                            CustomTextField(
+                                text: $codeDigit2,
+                                textFont: Constants.codeTextFieldFont,
+                                withClearBtn: false,
+                                multilineTextAlignment: .center,
+                                borderColor: borderColor
+                            )
+                            .focused($isFocusedDigit2)
+                            .frame(width: Constants.codeTextFieldFrame.width,
+                                   height: Constants.codeTextFieldFrame.height)
+                            .padding(.horizontal, Constants.codeTextFieldrPadding)
+                            
+                            CustomTextField(
+                                text: $codeDigit3,
+                                textFont: Constants.codeTextFieldFont,
+                                withClearBtn: false,
+                                multilineTextAlignment: .center,
+                                borderColor: borderColor
+                            )
+                            .focused($isFocusedDigit3)
+                            .frame(width: Constants.codeTextFieldFrame.width,
+                                   height: Constants.codeTextFieldFrame.height)
+                            .padding(.horizontal, Constants.codeTextFieldrPadding)
+                            
+                            CustomTextField(
+                                text: $codeDigit4,
+                                textFont: Constants.codeTextFieldFont,
+                                withClearBtn: false,
+                                multilineTextAlignment: .center,
+                                borderColor: borderColor
+                            )
+                            .focused($isFocusedDigit4)
+                            .frame(width: Constants.codeTextFieldFrame.width,
+                                   height: Constants.codeTextFieldFrame.height)
+                            .padding(.horizontal, Constants.codeTextFieldrPadding)
+                        }
+                        .frame(height: Constants.hStackHeight)
+                        if let borderColor, borderColor != UIHelper.acceptColor {
+                            Text(Constants.errorText)
+                                .customTextStyle(font: Constants.timerTextFont,color: borderColor)
+                        }
+                        if let timeRemaining = timerManager.timeRemaining {
+                            if timeRemaining > 0 {
+                                Text("\(Constants.timerTitle) \(timeRemaining) \(Constants.timerTitleSec)")
+                                    .customTextStyle(font: Constants.timerTextFont)
+                                    .padding(.top, Constants.timerTextPadding)
+                            } else {
+                                Button(action: {
+                                    timerManager.start(on: Constants.timeRemaingRequestCode)
+                                }) {
+                                    Text(Constants.requestCodeBtnTitle)
+                                        .customTextStyle(font: Constants.timerTextFont)
+                                        .padding(.top, Constants.timerTextPadding)
+                                }
+                            }
+                        }
+                        Spacer()
+                        VStack {
+                            Button(Constants.requestAuthorizationBtnTitle) {
+                                if checkCodeIsValid() {
+                                    borderColor = UIHelper.acceptColor
+                                } else {
+                                    borderColor = UIHelper.alertColor
+                                }
+                            }
+                            .buttonStyle(RoundButton())
+                            .frame(height: Constants.baseFrameHeight)
+                            .padding(.top, horizontalSizeClass == .compact ?
+                                     Constants.requestAuthorizationBtnPaddingCompactValue :
+                                        Constants.requestAuthorizationBtnPaddingDefaultValue
+                            )
                         }
                     }
-                    .buttonStyle(RoundButton())
-                    .frame(height: Constants.baseFrameHeight)
-                    .padding(.top, horizontalSizeClass == .compact ?
-                             Constants.requestAuthorizationBtnPaddingCompactValue :
-                                Constants.requestAuthorizationBtnPaddingDefaultValue
-                    )
+                    .padding(.horizontal, Constants.viewHorizontalPaddingValue)
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                            timerManager.start(on: Constants.timeRemaingRequestCode)
+                        }
+                    }
+                    .onChange(of: codeDigit1) {
+                        modifired(numberOfTextFields: 1, newValue: $0)
+                    }
+                    .onChange(of: codeDigit2) {
+                        modifired(numberOfTextFields: 2, newValue: $0)
+                    }
+                    .onChange(of: codeDigit3) {
+                        modifired(numberOfTextFields: 3, newValue: $0)
+                    }
+                    .onChange(of: codeDigit4) {
+                        modifired(numberOfTextFields: 4, newValue: $0)
+                    }
+                }
+                if currentDevice == .pad {
+                    makeBackBtn()
+                        .padding()
                 }
             }
-            .padding(.horizontal, Constants.viewHorizontalPaddingValue)
-            .onAppear { timerManager.start(on: Constants.timeRemaingRequestCode) }
-            .onChange(of: codeDigit1) {
-                modifired(numberOfTextFields: 1, newValue: $0)
-            }
-            .onChange(of: codeDigit2) {
-                modifired(numberOfTextFields: 2, newValue: $0)
-            }
-            .onChange(of: codeDigit3) {
-                modifired(numberOfTextFields: 3, newValue: $0)
-            }
-            .onChange(of: codeDigit4) {
-                modifired(numberOfTextFields: 4, newValue: $0)
+            if currentDevice == .phone {
+                VStack {
+                    HStack {
+                        makeBackBtn()
+                            .padding(.horizontal)
+                        Spacer()
+                    }
+                    Spacer()
+                }
             }
         }
     }
@@ -155,6 +177,24 @@ struct SMSScreen: View {
 // MARK: - Private methods
 
 private extension SMSScreen {
+    func makeBackBtn() -> some View {
+        HStack {
+            Button(action: {
+                withAnimation(.easeInOut) {
+                    router.pop()
+                }
+            }) {
+                HStack {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(UIHelper.baseTextColor)
+                        .frame(width: 20, height: 20)
+                    Text("Вернуться назад")
+                        .customTextStyle(font: Constants.backBtnTextFont)
+                }
+            }
+        }
+    }
+
     func checkCodeIsValid() -> Bool {
         let code = codeDigit1 + codeDigit2 + codeDigit3 + codeDigit4
         return code == "3221"
@@ -221,7 +261,6 @@ private extension SMSScreen {
         static let hStackHeight = CGFloat(128)
 
         static let requestAuthorizationBtnTitle = "Авторизоваться"
-        static let requestAuthorizationBtnPadding = EdgeInsets(top: 24, leading: 0, bottom: 0, trailing: 0)
         static let requestAuthorizationBtnPaddingDefaultValue = CGFloat(48)
         static let requestAuthorizationBtnPaddingCompactValue = CGFloat(0)
 
@@ -229,6 +268,9 @@ private extension SMSScreen {
         static let viewHorizontalPaddingValue = CGFloat(24)
         
         static let timeRemaingRequestCode = 60
+        
+        static let backBtnTextFont = Font.custom("Montserrat", size: 14).weight(.regular)
+
     }
 }
 // MARK: - Preview

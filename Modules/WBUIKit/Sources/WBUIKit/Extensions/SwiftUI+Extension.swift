@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-extension View {
+public extension View {
     func hideKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 
-    public func customTextStyle(font: Font = .custom("Montserrat", size: 24).weight(.semibold),
-                        color: Color = UIHelper.baseTextColor) -> some View {
+    func customTextStyle(font: Font = .custom("Montserrat", size: 24).weight(.semibold),
+                         color: Color = UIHelper.baseTextColor) -> some View {
         self.modifier(TitleTextStyle(font: font, color: color))
     }
 }

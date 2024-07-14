@@ -8,24 +8,36 @@
 import SwiftUI
 import Combine
 
-class TimerManager: ObservableObject {
+final class SMSTimerManager: ObservableObject {
 
     // MARK: Public properties
 
-    @Published var timeRemaining: Int = 0
-    var timer: Timer?
+    static let shared = SMSTimerManager()
+
+    @Published var timeRemaining: Int?
+
+    // MARK: Private properties
+
+    private var timer: Timer?
+
+    // MARK: Init
+
+    private init() {}
 
     // MARK: Public methods
 
     func start(on timeRemaining: Int) {
-        self.timeRemaining = timeRemaining
-        timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
-            guard let self = self else { return }
-            if self.timeRemaining > 0 {
-                self.timeRemaining -= 1
-            } else {
-                timer.invalidate()
+        if self.timeRemaining == nil || self.timeRemaining == 0 {
+            self.timeRemaining = timeRemaining
+            timer?.invalidate()
+            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
+                guard let self = self, var timeRemaining = self.timeRemaining else { return }
+                if timeRemaining > 0 {
+                    timeRemaining -= 1
+                    self.timeRemaining = timeRemaining
+                } else {
+                    timer.invalidate()
+                }
             }
         }
     }
