@@ -74,9 +74,7 @@ private extension LoginView {
     func checkPhoneNumber() {
         if phoneNumber.isValid(regex: Constants.phoneNumberRegEx) {
             errorMessage = nil
-            withAnimation(.easeInOut) {
-                router.push(SMSScreen(phoneNumber: phoneNumber))
-            }
+            router.custom(SMSScreen(phoneNumber: phoneNumber), transition: .move(edge: .trailing))
         } else {
             errorMessage = Constants.errorMessage
         }

@@ -180,9 +180,7 @@ private extension SMSScreen {
     func makeBackBtn() -> some View {
         HStack {
             Button(action: {
-                withAnimation(.easeInOut) {
-                    router.pop()
-                }
+                router.pop()
             }) {
                 HStack {
                     Image(systemName: "chevron.left")
