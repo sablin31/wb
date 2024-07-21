@@ -29,3 +29,23 @@ extension String {
         return formattedValue
     }
 }
+
+extension Stack: Container {
+    mutating func add(_ item: Element) {
+        push(item)
+    }
+
+    mutating func remove() -> Element? {
+        pop()
+    }
+}
+
+extension Queue: Container {
+    func add(_ item: Element) {
+        enqueue(item)
+    }
+
+    func remove() -> Element? {
+        dequeue()
+    }
+}
