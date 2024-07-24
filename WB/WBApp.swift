@@ -14,6 +14,7 @@ struct WBApp: App {
     // MARK: Private properties
 
     @StateObject private var router = Router()
+    @StateObject private var languageManager = LanguageManager.shared
 
     // MARK: Computed properties
 
@@ -21,6 +22,7 @@ struct WBApp: App {
         WindowGroup {
             LoginView()
                 .environmentObject(router)
+                .environmentObject(languageManager)
         }
     }
 }

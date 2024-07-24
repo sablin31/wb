@@ -8,6 +8,10 @@
 import Foundation
 
 extension String {
+    var localized: String {
+        LanguageManager.shared.localizedString(forKey: self)
+    }
+
     func isValid(regex: String) -> Bool {
         NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: self)
     }
@@ -27,6 +31,26 @@ extension String {
         }
 
         return formattedValue
+    }
+}
+
+extension Date {
+    static let formatter = DateFormatter()
+
+    func formattedDate(dateStyle: DateFormatter.Style,
+                       timeStyle: DateFormatter.Style? = nil) -> String {
+        Date.formatter.dateFormat = nil
+        Date.formatter.dateStyle = dateStyle
+        if let timeStyle {
+            Date.formatter.timeStyle = timeStyle
+        }
+        return Date.formatter.string(from: self)
+    }
+    
+    func formattedDate(dateFormat: String) -> String {
+        Date.formatter.dateFormat = nil
+        Date.formatter.dateFormat = dateFormat
+        return Date.formatter.string(from: self)
     }
 }
 

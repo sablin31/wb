@@ -96,19 +96,20 @@ struct SMSScreen: View {
                         }
                         .frame(height: Constants.hStackHeight)
                         if let borderColor, borderColor != UIHelper.acceptColor {
-                            Text(Constants.errorText)
+                            Text(Constants.errorText.localized.capitalized)
                                 .customTextStyle(font: Constants.timerTextFont,color: borderColor)
                         }
                         if let timeRemaining = timerManager.timeRemaining {
                             if timeRemaining > 0 {
-                                Text("\(Constants.timerTitle) \(timeRemaining) \(Constants.timerTitleSec)")
+                                let localizedString = String(format: NSLocalizedString("requestAgainWithTime".localized, comment: ""), timeRemaining).capitalized
+                                Text(localizedString)
                                     .customTextStyle(font: Constants.timerTextFont)
                                     .padding(.top, Constants.timerTextPadding)
                             } else {
                                 Button(action: {
                                     timerManager.start(on: Constants.timeRemaingRequestCode)
                                 }) {
-                                    Text(Constants.requestCodeBtnTitle)
+                                    Text(Constants.requestCodeBtnTitle.localized.capitalized)
                                         .customTextStyle(font: Constants.timerTextFont)
                                         .padding(.top, Constants.timerTextPadding)
                                 }
@@ -116,7 +117,7 @@ struct SMSScreen: View {
                         }
                         Spacer()
                         VStack {
-                            Button(Constants.requestAuthorizationBtnTitle) {
+                            Button(Constants.requestAuthorizationBtnTitle.localized.capitalized) {
                                 if checkCodeIsValid() {
                                     borderColor = UIHelper.acceptColor
                                 } else {
@@ -186,7 +187,7 @@ private extension SMSScreen {
                     Image(systemName: "chevron.left")
                         .foregroundColor(UIHelper.baseTextColor)
                         .frame(width: 20, height: 20)
-                    Text("Вернуться назад")
+                    Text(Constants.backBtnText.localized.capitalized)
                         .customTextStyle(font: Constants.backBtnTextFont)
                 }
             }
@@ -249,16 +250,14 @@ private extension SMSScreen {
         static let codeTextFieldFrame = CGSize(width: 64, height: 80)
         static let codeTextFieldrPadding = CGFloat(8)
 
-        static let errorText = "Неверный код"
-        static let requestCodeBtnTitle = "Запросить новый код"
-        static let timerTitle = "Запросить повторно через"
-        static let timerTitleSec = "сек"
+        static let errorText = "incorrectCode"
+        static let requestCodeBtnTitle = "requestCode"
         static let timerTextFont = Font.custom("Montserrat", size: 14).weight(.regular)
         static let timerTextPadding = CGFloat(16)
 
         static let hStackHeight = CGFloat(128)
 
-        static let requestAuthorizationBtnTitle = "Авторизоваться"
+        static let requestAuthorizationBtnTitle = "authorization"
         static let requestAuthorizationBtnPaddingDefaultValue = CGFloat(48)
         static let requestAuthorizationBtnPaddingCompactValue = CGFloat(0)
 
@@ -266,7 +265,7 @@ private extension SMSScreen {
         static let viewHorizontalPaddingValue = CGFloat(24)
         
         static let timeRemaingRequestCode = 60
-        
+        static let backBtnText = "back"
         static let backBtnTextFont = Font.custom("Montserrat", size: 14).weight(.regular)
 
     }
