@@ -46,6 +46,19 @@ final class WBTests: XCTestCase {
         let removedValue = opaqueQueue.remove() as? String
         XCTAssertEqual(removedValue, Optional("WB"))
     }
+
+    func testHW5() {
+        // Работа с subscript
+        let array = [1,2,3]
+        XCTAssertEqual(array[safe: 0], 1)
+        XCTAssertEqual(array[safe: 3], nil)
+        
+        // Работа с +++
+        let cargo1 = Cargo(width: 1, height: 2, length: 3)
+        let cargo2 = Cargo(width: 4, height: 5, length: 6)
+        let result = cargo1 +++ cargo2
+        XCTAssertEqual(result, 126)
+    }
 }
 // MARK: - Helpers
 

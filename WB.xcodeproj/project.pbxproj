@@ -21,6 +21,7 @@
 		708C6CA22C511EDC007EC0AA /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 708C6CA12C511EDC007EC0AA /* Localizable.xcstrings */; };
 		708C6CA82C513455007EC0AA /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708C6CA72C513455007EC0AA /* LanguageManager.swift */; };
 		708C6CAB2C5140FB007EC0AA /* HW5View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708C6CAA2C5140FB007EC0AA /* HW5View.swift */; };
+		708C6CB32C528A6C007EC0AA /* Cargo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708C6CB22C528A6C007EC0AA /* Cargo.swift */; };
 		70A683A02C42F3AD00FFBA64 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A6839F2C42F3AD00FFBA64 /* LoginView.swift */; };
 		70CD79112C33C77500FDA91C /* SMSScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CD79102C33C77500FDA91C /* SMSScreen.swift */; };
 		70CD79132C33CA5F00FDA91C /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CD79122C33CA5F00FDA91C /* TimerManager.swift */; };
@@ -58,6 +59,7 @@
 		708C6CA12C511EDC007EC0AA /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		708C6CA72C513455007EC0AA /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
 		708C6CAA2C5140FB007EC0AA /* HW5View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HW5View.swift; sourceTree = "<group>"; };
+		708C6CB22C528A6C007EC0AA /* Cargo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cargo.swift; sourceTree = "<group>"; };
 		70A6839F2C42F3AD00FFBA64 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		70CD79102C33C77500FDA91C /* SMSScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSScreen.swift; sourceTree = "<group>"; };
 		70CD79122C33CA5F00FDA91C /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				707A14712C4D83F7002EE64F /* Stack.swift */,
 				707A14732C4D8439002EE64F /* Queue.swift */,
 				707A14782C4D8678002EE64F /* AnyContainer.swift */,
+				708C6CB22C528A6C007EC0AA /* Cargo.swift */,
 			);
 			path = CustomStruct;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				70CD79112C33C77500FDA91C /* SMSScreen.swift in Sources */,
 				708C6CAB2C5140FB007EC0AA /* HW5View.swift in Sources */,
 				707A146B2C4D7AB7002EE64F /* CustomNavigationView.swift in Sources */,
+				708C6CB32C528A6C007EC0AA /* Cargo.swift in Sources */,
 				708C6CA82C513455007EC0AA /* LanguageManager.swift in Sources */,
 				707A146D2C4D7D45002EE64F /* Router.swift in Sources */,
 				707A14722C4D83F7002EE64F /* Stack.swift in Sources */,

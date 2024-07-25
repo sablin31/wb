@@ -7,6 +7,8 @@
 
 import Foundation
 
+infix operator +++
+
 extension String {
     var localized: String {
         LanguageManager.shared.localizedString(forKey: self)
@@ -71,5 +73,11 @@ extension Queue: Container {
 
     func remove() -> Element? {
         dequeue()
+    }
+}
+
+extension Collection {
+    subscript(safe index: Index) -> Element? {
+        indices.contains(index) ? self[index] : nil
     }
 }
