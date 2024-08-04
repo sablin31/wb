@@ -41,6 +41,22 @@
                ReferencedContainer = "container:WB.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "70F44AF42C5FFD1E000D32E0"
+               BuildableName = "WBUITests.xctest"
+               BlueprintName = "WBUITests"
+               ReferencedContainer = "container:WB.xcodeproj">
+            </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "WBUITestsLaunchTests">
+               </Test>
+            </SkippedTests>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

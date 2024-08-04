@@ -20,9 +20,10 @@ struct WBApp: App {
 
     var body: some Scene {
         WindowGroup {
-            LoginView()
-                .environmentObject(router)
-                .environmentObject(languageManager)
+            CalculatorView()
+//            LoginView()
+//                .environmentObject(router)
+//                .environmentObject(languageManager)
         }
     }
 }

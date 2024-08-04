@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7045DD562C5FDEA8000AD331 /* WBCalculator in Resources */ = {isa = PBXBuildFile; fileRef = 7045DD552C5FDEA8000AD331 /* WBCalculator */; };
+		7045DD592C5FE3DB000AD331 /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7045DD582C5FE3DB000AD331 /* CalculatorTests.swift */; };
+		7045DD5C2C5FE4F1000AD331 /* WBCalculator in Frameworks */ = {isa = PBXBuildFile; productRef = 7045DD5B2C5FE4F1000AD331 /* WBCalculator */; };
+		7045DD5E2C5FE5D0000AD331 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7045DD5D2C5FE5D0000AD331 /* NetworkManager.swift */; };
+		7045DD602C5FE606000AD331 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7045DD5F2C5FE606000AD331 /* NetworkManagerTests.swift */; };
+		7045DD622C5FED1A000AD331 /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7045DD612C5FED1A000AD331 /* CalculatorView.swift */; };
+		7045DD642C5FEF79000AD331 /* CalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7045DD632C5FEF79000AD331 /* CalculatorModel.swift */; };
 		706A13432C32CB9E0065B39B /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 706A133F2C32CB9E0065B39B /* Montserrat-Regular.ttf */; };
 		706A13442C32CB9E0065B39B /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 706A13402C32CB9E0065B39B /* Montserrat-SemiBold.ttf */; };
 		706A13452C32CB9E0065B39B /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 706A13412C32CB9E0065B39B /* Montserrat-Medium.ttf */; };
@@ -30,6 +37,7 @@
 		70CD79222C35E19E00FDA91C /* Foundation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CD79212C35E19E00FDA91C /* Foundation+Extension.swift */; };
 		70CD86C32C329DB10046082E /* WBApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CD86C22C329DB10046082E /* WBApp.swift */; };
 		70CD86C72C329DB20046082E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70CD86C62C329DB20046082E /* Assets.xcassets */; };
+		70F44AF82C5FFD1E000D32E0 /* WBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F44AF72C5FFD1E000D32E0 /* WBUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,9 +48,23 @@
 			remoteGlobalIDString = 70CD86BE2C329DB10046082E;
 			remoteInfo = WB;
 		};
+		70F44AFB2C5FFD1E000D32E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 70CD86B72C329DB10046082E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 70CD86BE2C329DB10046082E;
+			remoteInfo = WB;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7045DD552C5FDEA8000AD331 /* WBCalculator */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = WBCalculator; path = ../WBCalculator; sourceTree = "<group>"; };
+		7045DD582C5FE3DB000AD331 /* CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTests.swift; sourceTree = "<group>"; };
+		7045DD5A2C5FE4D1000AD331 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = WBCalculator/Package.swift; sourceTree = "<group>"; };
+		7045DD5D2C5FE5D0000AD331 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		7045DD5F2C5FE606000AD331 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
+		7045DD612C5FED1A000AD331 /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
+		7045DD632C5FEF79000AD331 /* CalculatorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorModel.swift; sourceTree = "<group>"; };
 		706A133F2C32CB9E0065B39B /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		706A13402C32CB9E0065B39B /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		706A13412C32CB9E0065B39B /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
@@ -69,6 +91,8 @@
 		70CD86C22C329DB10046082E /* WBApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBApp.swift; sourceTree = "<group>"; };
 		70CD86C62C329DB20046082E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70CD86C82C329DB20046082E /* WB.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WB.entitlements; sourceTree = "<group>"; };
+		70F44AF52C5FFD1E000D32E0 /* WBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		70F44AF72C5FFD1E000D32E0 /* WBUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,12 +108,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				70CD79202C359A7300FDA91C /* WBUIKit in Frameworks */,
+				7045DD5C2C5FE4F1000AD331 /* WBCalculator in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		70F44AF22C5FFD1E000D32E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7045DD652C5FF7EF000AD331 /* Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				7045DD612C5FED1A000AD331 /* CalculatorView.swift */,
+				7045DD632C5FEF79000AD331 /* CalculatorModel.swift */,
+			);
+			path = Calculator;
+			sourceTree = "<group>";
+		};
 		706A133E2C32CB580065B39B /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +145,7 @@
 		707A14692C4D7AAD002EE64F /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				7045DD652C5FF7EF000AD331 /* Calculator */,
 				707A146A2C4D7AB7002EE64F /* CustomNavigationView.swift */,
 			);
 			path = CustomView;
@@ -132,6 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				707A14AB2C4D89BE002EE64F /* WBTests.swift */,
+				7045DD582C5FE3DB000AD331 /* CalculatorTests.swift */,
+				7045DD5F2C5FE606000AD331 /* NetworkManagerTests.swift */,
 			);
 			path = WBTests;
 			sourceTree = "<group>";
@@ -170,6 +214,7 @@
 			children = (
 				70CD79122C33CA5F00FDA91C /* TimerManager.swift */,
 				708C6CA72C513455007EC0AA /* LanguageManager.swift */,
+				7045DD5D2C5FE5D0000AD331 /* NetworkManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -193,6 +238,7 @@
 		70CD79172C359A1200FDA91C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7045DD5A2C5FE4D1000AD331 /* Package.swift */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -200,6 +246,7 @@
 		70CD791B2C359A4500FDA91C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				7045DD552C5FDEA8000AD331 /* WBCalculator */,
 				70CD791A2C359A4500FDA91C /* WBUIKit */,
 			);
 			path = Modules;
@@ -211,6 +258,7 @@
 				70CD791B2C359A4500FDA91C /* Modules */,
 				70CD86C12C329DB10046082E /* WB */,
 				707A14AA2C4D89BE002EE64F /* WBTests */,
+				70F44AF62C5FFD1E000D32E0 /* WBUITests */,
 				70CD86C02C329DB10046082E /* Products */,
 				70CD79172C359A1200FDA91C /* Frameworks */,
 			);
@@ -221,6 +269,7 @@
 			children = (
 				70CD86BF2C329DB10046082E /* WB.app */,
 				707A14A92C4D89BE002EE64F /* WBTests.xctest */,
+				70F44AF52C5FFD1E000D32E0 /* WBUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -240,6 +289,14 @@
 				706A133E2C32CB580065B39B /* Fonts */,
 			);
 			path = WB;
+			sourceTree = "<group>";
+		};
+		70F44AF62C5FFD1E000D32E0 /* WBUITests */ = {
+			isa = PBXGroup;
+			children = (
+				70F44AF72C5FFD1E000D32E0 /* WBUITests.swift */,
+			);
+			path = WBUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,10 +335,29 @@
 			name = WB;
 			packageProductDependencies = (
 				70CD791F2C359A7300FDA91C /* WBUIKit */,
+				7045DD5B2C5FE4F1000AD331 /* WBCalculator */,
 			);
 			productName = WB;
 			productReference = 70CD86BF2C329DB10046082E /* WB.app */;
 			productType = "com.apple.product-type.application";
+		};
+		70F44AF42C5FFD1E000D32E0 /* WBUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 70F44AFD2C5FFD1E000D32E0 /* Build configuration list for PBXNativeTarget "WBUITests" */;
+			buildPhases = (
+				70F44AF12C5FFD1E000D32E0 /* Sources */,
+				70F44AF22C5FFD1E000D32E0 /* Frameworks */,
+				70F44AF32C5FFD1E000D32E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				70F44AFC2C5FFD1E000D32E0 /* PBXTargetDependency */,
+			);
+			name = WBUITests;
+			productName = WBUITests;
+			productReference = 70F44AF52C5FFD1E000D32E0 /* WBUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -299,6 +375,10 @@
 					};
 					70CD86BE2C329DB10046082E = {
 						CreatedOnToolsVersion = 15.4;
+					};
+					70F44AF42C5FFD1E000D32E0 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 70CD86BE2C329DB10046082E;
 					};
 				};
 			};
@@ -318,6 +398,7 @@
 			targets = (
 				70CD86BE2C329DB10046082E /* WB */,
 				707A14A82C4D89BE002EE64F /* WBTests */,
+				70F44AF42C5FFD1E000D32E0 /* WBUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -341,6 +422,14 @@
 				706A13442C32CB9E0065B39B /* Montserrat-SemiBold.ttf in Resources */,
 				708C6CA22C511EDC007EC0AA /* Localizable.xcstrings in Resources */,
 				70CD86C72C329DB20046082E /* Assets.xcassets in Resources */,
+				7045DD562C5FDEA8000AD331 /* WBCalculator in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		70F44AF32C5FFD1E000D32E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,7 +440,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7045DD602C5FE606000AD331 /* NetworkManagerTests.swift in Sources */,
 				707A14AC2C4D89BE002EE64F /* WBTests.swift in Sources */,
+				7045DD592C5FE3DB000AD331 /* CalculatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,9 +451,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				70CD79132C33CA5F00FDA91C /* TimerManager.swift in Sources */,
+				7045DD642C5FEF79000AD331 /* CalculatorModel.swift in Sources */,
 				70CD79112C33C77500FDA91C /* SMSScreen.swift in Sources */,
 				708C6CAB2C5140FB007EC0AA /* HW5View.swift in Sources */,
 				707A146B2C4D7AB7002EE64F /* CustomNavigationView.swift in Sources */,
+				7045DD622C5FED1A000AD331 /* CalculatorView.swift in Sources */,
 				708C6CB32C528A6C007EC0AA /* Cargo.swift in Sources */,
 				708C6CA82C513455007EC0AA /* LanguageManager.swift in Sources */,
 				707A146D2C4D7D45002EE64F /* Router.swift in Sources */,
@@ -371,8 +464,17 @@
 				70A683A02C42F3AD00FFBA64 /* LoginView.swift in Sources */,
 				707A14772C4D8582002EE64F /* Container.swift in Sources */,
 				707A14742C4D8439002EE64F /* Queue.swift in Sources */,
+				7045DD5E2C5FE5D0000AD331 /* NetworkManager.swift in Sources */,
 				707A14792C4D8678002EE64F /* AnyContainer.swift in Sources */,
 				70CD86C32C329DB10046082E /* WBApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		70F44AF12C5FFD1E000D32E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70F44AF82C5FFD1E000D32E0 /* WBUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +485,11 @@
 			isa = PBXTargetDependency;
 			target = 70CD86BE2C329DB10046082E /* WB */;
 			targetProxy = 707A14AD2C4D89BE002EE64F /* PBXContainerItemProxy */;
+		};
+		70F44AFC2C5FFD1E000D32E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 70CD86BE2C329DB10046082E /* WB */;
+			targetProxy = 70F44AFB2C5FFD1E000D32E0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -622,6 +729,45 @@
 			};
 			name = Release;
 		};
+		70F44AFE2C5FFD1E000D32E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KTH6ENQ3G9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sablin.internship.WBUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WB;
+			};
+			name = Debug;
+		};
+		70F44AFF2C5FFD1E000D32E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KTH6ENQ3G9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sablin.internship.WBUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WB;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -652,9 +798,22 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		70F44AFD2C5FFD1E000D32E0 /* Build configuration list for PBXNativeTarget "WBUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				70F44AFE2C5FFD1E000D32E0 /* Debug */,
+				70F44AFF2C5FFD1E000D32E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7045DD5B2C5FE4F1000AD331 /* WBCalculator */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = WBCalculator;
+		};
 		70CD791F2C359A7300FDA91C /* WBUIKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = WBUIKit;
